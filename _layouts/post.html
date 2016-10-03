@@ -1,6 +1,13 @@
 ---
 layout: default
 ---
+
+{% assign minutes = content | strip_html | number_of_words | divided_by: 180 %}
+{% if minutes == 0 %}
+{% assign minutes = 1 %}
+{% endif %}
+
+
 <header>
   <h1 class="header-small">
     <a href="{{ site.baseurl }}">{{ site.name }}</a>
@@ -10,13 +17,11 @@ layout: default
   <h1 class="post-title">{{ page.title }}</h1>
   <span class="post-date">
     <time>{{ page.date | date_to_string }}</time>
-    <br>
-      {% assign words = content | number_of_words %}
-      {% if words < 360 %}
-      1 min
-      {% else %}
-      {{ words | divided_by:180 }} mins
-      {% endif %}
+    {% if page.minutes %}
+    {{ page.minutes }} {{ site.text.post.minute_read }}
+    {% else %}
+    {{ minutes }} {{ site.text.post.minute_read }}
+    {% endif %}
   </span>
   <div class="post-tag">
     <ul>
