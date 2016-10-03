@@ -17,11 +17,12 @@ layout: default
   <h1 class="post-title">{{ page.title }}</h1>
   <span class="post-date">
     <time>{{ page.date | date_to_string }}</time>
+    <p>
     {% if page.minutes %}
     {{ page.minutes }} {{ site.text.post.minute_read }}
     {% else %}
     {{ minutes }} {{ site.text.post.minute_read }}
-    {% endif %} minute read
+    {% endif %} minute read</p>
   </span>
   <div class="post-tag">
     <ul>
