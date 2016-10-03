@@ -10,10 +10,10 @@ layout: default
   <h1 class="post-title">{{ page.title }}</h1>
   <span class="post-date">
     <time>{{ page.date | date_to_string }}</time>
-    {% assign minutes = content | strip_html | number_of_words | divided_by: 180 %}
+    <p>{% assign minutes = content | strip_html | number_of_words | divided_by: 180 %}
     {% if minutes == 0 %}
     {% assign minutes = 1 %}
-    {% endif %}
+    {% endif %}</p>
   </span>
   <div class="post-tag">
     <ul>
